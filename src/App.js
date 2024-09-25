@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import StartServer from './components/StartServer';
+import Terminal from './components/Terminal';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [serverName, setServerName] = useState('')
+  useEffect(()=>{
+    window.localStorage.setItem('currentPath','/')
+  },[])
+  const startServer = (serverName) => {
+    setServerName(serverName)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='main-container'>
+      <StartServer startServer={startServer}/>
+      {serverName.length > 0 && 
+        <Terminal serverName={serverName}/>
+      }
     </div>
   );
 }
