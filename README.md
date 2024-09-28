@@ -1,3 +1,7 @@
+# Link to the project
+
+https://basic-linux-terminal-2.onrender.com
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
